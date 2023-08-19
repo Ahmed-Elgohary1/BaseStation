@@ -1,18 +1,14 @@
 package org.example;
 
-//public class Main {
-//    public static void main(String[] args) {
-//        System.out.println("Hello world!");
-//    }
-//}
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOError;
 import java.io.IOException;
@@ -44,8 +40,14 @@ public class CentralStationHandler {
                 ConsumerRecords<String, String> recordsBatch = consumer.poll(Duration.ofSeconds(1));
 
                     for (ConsumerRecord<String, String> record : recordsBatch) {
-                        System.out.printf("Received message: key=%s, value=%s, partition=%d, offset=%d%n",
+                       System.out.printf("Received message: key=%s, value=%s, partition=%d, offset=%d%n",
                                 record.key(), record.value(), record.partition(), record.offset());
+
+                       /*
+                      log.info("Received message: key=%s, value=%s, partition=%d, offset=%d%n",
+                              record.key(), record.value(), record.partition(), record.offset());
+
+                        */
                 }
               }
             catch (IOError e){
@@ -59,8 +61,3 @@ public class CentralStationHandler {
         kafkaConsumer();
     }
 }
-//public class Main {
-//    public static void main(String[] args) {
-//        System.out.println("Hello world!");
-//    }
-//}
