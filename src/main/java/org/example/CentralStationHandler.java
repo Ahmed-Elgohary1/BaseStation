@@ -64,6 +64,7 @@ public class CentralStationHandler {
                     for (ConsumerRecord<String, String> record : recordsBatch) {
 
 
+
                         WeatherStationMessage message = mapper.readValue(record.value(), WeatherStationMessage.class);
 
                         parquetMemoryManager.messageArchiving(message);
@@ -80,6 +81,7 @@ public class CentralStationHandler {
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
+
 
         }
     }

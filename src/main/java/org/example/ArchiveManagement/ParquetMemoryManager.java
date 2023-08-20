@@ -8,12 +8,15 @@ import org.example.model.WeatherStationMessage;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import static org.apache.commons.compress.harmony.pack200.PackingUtils.log;
+
 public class ParquetMemoryManager {
-    private final ConcurrentHashMap<Long, List<GenericRecord>> batchManager;
+    private final HashMap<Long, List<GenericRecord>> batchManager;
     private final int BatchSize;
     private final AvroEncoder avroEncoder;
 
@@ -30,7 +33,7 @@ public class ParquetMemoryManager {
 
     private ParquetMemoryManager(int batchSize) {
         BatchSize=batchSize;
-        batchManager=new ConcurrentHashMap<>();
+        batchManager=new HashMap<>();
         avroEncoder=new AvroEncoder();
         parquetPath="E:\\project\\BaseStation\\ParquetArch\\";
         fileProcessor.enableNameManager();
@@ -58,25 +61,26 @@ public class ParquetMemoryManager {
 
         List<GenericRecord> stationInmemoryBatch;
 
-        if(batchManager.contains(stationId)){
+        if(batchManager.containsKey(stationId)){
             stationInmemoryBatch=batchManager.get(stationId);
         }
         else{
-            stationInmemoryBatch=new ArrayList<>();
+            stationInmemoryBatch= new ArrayList<>();
             batchManager.put(stationId,stationInmemoryBatch);
         }
 
        stationInmemoryBatch.add(record);
         batchManager.put(stationId,stationInmemoryBatch);
 
+
         log.info("Current Batch and its Size "+stationId.toString()+"  "+stationInmemoryBatch.size());
 
 
-        if(stationInmemoryBatch.size()>= BatchSize){
+        if(stationInmemoryBatch.size()> BatchSize){
             String stationDirectory=fileProcessor.nameManager.appendDirectory(parquetPath ,stationId.toString());
             String fileName=fileProcessor.nameManager.generateUniquePathName( stationDirectory,"//",".txt");
 
-            log.info(parquetPath);
+
 
 
             try {
