@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="parquet creates directories">
-      <change afterPath="$PROJECT_DIR$/ParquetArch/1/1692545768397.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParquetArch/2/1692545765373.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParquetArch/2/1692545770963.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParquetArch/2/1692545777179.txt" afterDir="false" />
+    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="no concurrency is supported">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/DiskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/1/1692545768397.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/1/1692545915289.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/1/1692545919204.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/1/1692545920565.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/1/1692545921655.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545765373.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545770963.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545777179.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545907429.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545908440.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545911370.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParquetArch/2/1692545925076.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ArchiveManagement/ParquetMemoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ArchiveManagement/ParquetMemoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CentralStationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CentralStationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/FileProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/FileProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/NameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/NameManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +68,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.FileManagement.components" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.FileManagement" />
@@ -111,8 +124,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.CentralStationHandler" />
-        <item itemvalue="JUnit.FileProcessorTest" />
         <item itemvalue="JUnit.FileProcessorTest.testGenerateUniquePathName" />
+        <item itemvalue="JUnit.FileProcessorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692544458376</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="no concurrency is supported">
+      <created>1692546174662</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692546174662</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,7 +219,8 @@
     <MESSAGE value="String deserializer" />
     <MESSAGE value="Adding Encoder manager" />
     <MESSAGE value="parquet creates directories" />
-    <option name="LAST_COMMIT_MESSAGE" value="parquet creates directories" />
+    <MESSAGE value="no concurrency is supported" />
+    <option name="LAST_COMMIT_MESSAGE" value="no concurrency is supported" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

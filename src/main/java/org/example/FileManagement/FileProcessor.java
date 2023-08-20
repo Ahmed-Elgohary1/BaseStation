@@ -1,10 +1,12 @@
 package org.example.FileManagement;
 
+import org.example.FileManagement.components.DiskManager;
 import org.example.FileManagement.components.NameManager;
 
 public class FileProcessor {
 
     public NameManager nameManager;
+    public DiskManager diskManager;
 
 
     private static FileProcessor instance;
@@ -23,6 +25,9 @@ public class FileProcessor {
 
     public void enableNameManager(){
         nameManager=NameManager.getInstance();
+    }
+    public void enableDiskManager(){
+        diskManager=DiskManager.getInstance();
     }
 
 

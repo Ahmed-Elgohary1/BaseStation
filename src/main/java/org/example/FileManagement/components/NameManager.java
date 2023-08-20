@@ -3,7 +3,9 @@ package org.example.FileManagement.components;
 import org.example.FileManagement.FileProcessor;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class NameManager {
 
@@ -48,7 +50,12 @@ public class NameManager {
     public String generateUniquePathName(String intermediatePath,String fileName ,String fileFormat){
         String pathName= intermediatePath;
         pathName+=fileName;
-        pathName+=  System.currentTimeMillis();
+        // Get the current timestamp in milliseconds
+        long timestamp = System.currentTimeMillis();
+        // Format the timestamp as a string with the format "yyyyMMdd-HHmm ssSSS"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm ssSSS");
+        String timestampStr = dateFormat.format(new Date(timestamp));
+        pathName+=  timestampStr;
         pathName+=fileFormat;
         return pathName;
     }

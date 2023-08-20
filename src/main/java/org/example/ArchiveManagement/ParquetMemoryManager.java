@@ -3,6 +3,7 @@ package org.example.ArchiveManagement;
 import org.apache.avro.generic.GenericRecord;
 import org.example.EncoderMangment.AvroEncoder;
 import org.example.FileManagement.FileProcessor;
+import org.example.FileManagement.components.DiskManager;
 import org.example.model.WeatherStationMessage;
 
 import java.io.FileWriter;
@@ -10,10 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-
-import static org.apache.commons.compress.harmony.pack200.PackingUtils.log;
 
 public class ParquetMemoryManager {
     private final HashMap<Long, List<GenericRecord>> batchManager;
@@ -21,6 +19,7 @@ public class ParquetMemoryManager {
     private final AvroEncoder avroEncoder;
 
     private FileProcessor fileProcessor=FileProcessor.getInstance();
+
 
     private final String parquetPath;
 
@@ -37,6 +36,7 @@ public class ParquetMemoryManager {
         avroEncoder=new AvroEncoder();
         parquetPath="E:\\project\\BaseStation\\ParquetArch\\";
         fileProcessor.enableNameManager();
+        fileProcessor.enableDiskManager();
 
     }
 
@@ -78,20 +78,14 @@ public class ParquetMemoryManager {
 
         if(stationInmemoryBatch.size()> BatchSize){
             String stationDirectory=fileProcessor.nameManager.appendDirectory(parquetPath ,stationId.toString());
-            String fileName=fileProcessor.nameManager.generateUniquePathName( stationDirectory,"//",".txt");
+            String fileName=fileProcessor.nameManager.generateUniquePathName( stationDirectory,"//",".parquet");
 
+            fileProcessor.diskManager.setStationDirectory(stationDirectory);
+            fileProcessor.diskManager.setFileName(fileName);
 
+            fileProcessor.diskManager.writeWithFileWriter(stationInmemoryBatch);
 
-
-            try {
-                FileWriter writer = new FileWriter(fileName);
-                writer.write("Hello, World!"); // Write the content to the file
-                writer.close(); // Remember to close the writer
-                System.out.println("Successfully wrote to the file.");
-            } catch (IOException e) {
-                System.out.println("An error occurred while writing to the file.");
-                e.printStackTrace();
-            }
+            stationInmemoryBatch.clear();
 
 
         }
