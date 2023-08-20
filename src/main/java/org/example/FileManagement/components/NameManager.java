@@ -25,7 +25,7 @@ public class NameManager {
     }
 
 
-    public String appendDirctory(String absolutePath,String subDir ){
+    public String appendDirectory(String absolutePath,String subDir ){
 
         String directoryPath=absolutePath+subDir;
 

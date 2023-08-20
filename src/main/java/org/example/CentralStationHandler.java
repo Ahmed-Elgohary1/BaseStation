@@ -11,6 +11,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import lombok.extern.slf4j.Slf4j;
+import org.example.ArchiveManagement.ParquetMemoryManager;
 import org.example.model.WeatherStationMessage;
 
 
@@ -34,6 +35,11 @@ public class CentralStationHandler {
         return props;
     }
 
+    private static void configEnv(){
+        System.setProperty("parquetPath", "E:\\project\\BaseStation\\ParquetArch\\");
+
+    }
+
     private static final Logger log = Logger.getLogger(CentralStationHandler.class.getName());
 
 
@@ -43,6 +49,8 @@ public class CentralStationHandler {
 
 
         Properties properties=getKafkaConsumerProps();
+        ParquetMemoryManager parquetMemoryManager=ParquetMemoryManager.getInstance(1);
+        configEnv();
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Collections.singletonList("my-topic"));
@@ -57,6 +65,8 @@ public class CentralStationHandler {
 
 
                         WeatherStationMessage message = mapper.readValue(record.value(), WeatherStationMessage.class);
+
+                        parquetMemoryManager.messageArchiving(message);
                         System.out.printf(String.valueOf(message));
 
 

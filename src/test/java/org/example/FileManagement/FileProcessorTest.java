@@ -12,10 +12,13 @@ class FileProcessorTest {
 
     @Test
     void testGenerateUniquePathName(){
+
+
+
         FileProcessor fileProcessor=FileProcessor.getInstance();
         fileProcessor.enableNameManager();
 
-        String demoDirectory=fileProcessor.nameManager.appendDirctory("E:\\project\\BaseStation\\ParquetArch\\","first\\");
+        String demoDirectory=fileProcessor.nameManager.appendDirectory( "E:\\project\\BaseStation\\ParquetArch\\","frst\\");
 
         String fileName=fileProcessor.nameManager.generateUniquePathName( demoDirectory,"hi",".txt");
 
