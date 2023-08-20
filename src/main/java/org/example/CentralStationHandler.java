@@ -2,12 +2,16 @@ package org.example;
 
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import lombok.extern.slf4j.Slf4j;
+import org.example.model.WeatherStationMessage;
 
 
 import java.io.IOError;
@@ -15,6 +19,7 @@ import java.io.IOException;
         import java.time.Duration;
         import java.util.Collections;
         import java.util.Properties;
+import java.util.logging.Logger;
 
 public class CentralStationHandler {
 
@@ -28,33 +33,45 @@ public class CentralStationHandler {
 
         return props;
     }
+
+    private static final Logger log = Logger.getLogger(CentralStationHandler.class.getName());
+
+
     public static void kafkaConsumer() {
+
+
+
 
         Properties properties=getKafkaConsumerProps();
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Collections.singletonList("my-topic"));
 
+        ObjectMapper mapper = new ObjectMapper();
+
         while (true) {
             try {
                 ConsumerRecords<String, String> recordsBatch = consumer.poll(Duration.ofSeconds(1));
 
                     for (ConsumerRecord<String, String> record : recordsBatch) {
-                       System.out.printf("Received message: key=%s, value=%s, partition=%d, offset=%d%n",
-                                record.key(), record.value(), record.partition(), record.offset());
 
-                       /*
-                      log.info("Received message: key=%s, value=%s, partition=%d, offset=%d%n",
-                              record.key(), record.value(), record.partition(), record.offset());
 
-                        */
+                        WeatherStationMessage message = mapper.readValue(record.value(), WeatherStationMessage.class);
+                        System.out.printf(String.valueOf(message));
+
+
+
                 }
               }
             catch (IOError e){
                 throw new RuntimeException();
+            } catch (JsonMappingException e) {
+                throw new RuntimeException(e);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
             }
 
-           }
+        }
     }
 
     public static void main(String[] args) {
