@@ -52,7 +52,7 @@ public class ParquetMemoryManager {
     }
 
 
-    public void messageArchiving(WeatherStationMessage weatherStationMessage){
+    public void messageArchiving(WeatherStationMessage weatherStationMessage) throws IOException {
 
 
         Long stationId= weatherStationMessage.getStation_id();
@@ -83,7 +83,7 @@ public class ParquetMemoryManager {
             fileProcessor.diskManager.setStationDirectory(stationDirectory);
             fileProcessor.diskManager.setFileName(fileName);
 
-            fileProcessor.diskManager.writeWithFileWriter(stationInmemoryBatch);
+            fileProcessor.diskManager.writeWithParquetWriter(stationInmemoryBatch);
 
             stationInmemoryBatch.clear();
 

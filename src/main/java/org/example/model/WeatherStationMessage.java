@@ -17,7 +17,7 @@ public class WeatherStationMessage {
 
 
 
-   public  Schema getWeatherStationMessageAvroSchema() {
+   public static Schema getWeatherStationMessageAvroSchema() {
 
       Schema schema = Schema.createRecord("WeatherStationMessage", null, null, false);
       schema.setFields(Arrays.asList(
