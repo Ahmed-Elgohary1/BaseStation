@@ -9,10 +9,8 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.serialization.StringDeserializer;
-import lombok.extern.slf4j.Slf4j;
 import org.example.ArchiveManagement.ParquetMemoryManager;
-import org.example.model.WeatherStationMessage;
+import org.example.model.MessageModel.WeatherStationMessage;
 
 
 import java.io.IOError;
@@ -36,7 +34,7 @@ public class CentralStationHandler {
     }
 
     private static void configEnv(){
-        System.setProperty("parquetPath", "E:\\project\\BaseStation\\ParquetArch\\");
+        System.setProperty("parquetPath", "E:\\project\\Weather-Stations-Monitoring\\BaseStation\\ParquetArch\\");
 
     }
 

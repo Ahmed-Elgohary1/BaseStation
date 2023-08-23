@@ -3,7 +3,8 @@ package org.example.EncoderMangment;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.example.model.*;
+import org.example.model.MessageModel.WeatherMessageData;
+import org.example.model.MessageModel.WeatherStationMessage;
 
 
 public class AvroEncoder implements MessageRecordConverter{

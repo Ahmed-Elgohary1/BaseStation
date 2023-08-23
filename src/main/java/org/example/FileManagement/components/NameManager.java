@@ -53,7 +53,7 @@ public class NameManager {
         // Get the current timestamp in milliseconds
         long timestamp = System.currentTimeMillis();
         // Format the timestamp as a string with the format "yyyyMMdd-HHmm ssSSS"
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm ssSSS");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmm-ssSSS");
         String timestampStr = dateFormat.format(new Date(timestamp));
         pathName+=  timestampStr;
         pathName+=fileFormat;

@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.MessageModel;
 
 import lombok.Data;
 import org.apache.avro.Schema;

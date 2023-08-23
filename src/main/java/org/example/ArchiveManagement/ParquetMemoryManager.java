@@ -3,10 +3,8 @@ package org.example.ArchiveManagement;
 import org.apache.avro.generic.GenericRecord;
 import org.example.EncoderMangment.AvroEncoder;
 import org.example.FileManagement.FileProcessor;
-import org.example.FileManagement.components.DiskManager;
-import org.example.model.WeatherStationMessage;
+import org.example.model.MessageModel.WeatherStationMessage;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +32,7 @@ public class ParquetMemoryManager {
         BatchSize=batchSize;
         batchManager=new HashMap<>();
         avroEncoder=new AvroEncoder();
-        parquetPath="E:\\project\\BaseStation\\ParquetArch\\";
+        parquetPath="E:\\project\\Weather-Stations-Monitoring\\BaseStation\\ParquetArch\\";
         fileProcessor.enableNameManager();
         fileProcessor.enableDiskManager();
 
@@ -80,10 +78,8 @@ public class ParquetMemoryManager {
             String stationDirectory=fileProcessor.nameManager.appendDirectory(parquetPath ,stationId.toString());
             String fileName=fileProcessor.nameManager.generateUniquePathName( stationDirectory,"//",".parquet");
 
-            fileProcessor.diskManager.setStationDirectory(stationDirectory);
-            fileProcessor.diskManager.setFileName(fileName);
 
-            fileProcessor.diskManager.writeWithParquetWriter(stationInmemoryBatch);
+            fileProcessor.diskManager.writeWithFileWriter(stationInmemoryBatch,fileName);
 
             stationInmemoryBatch.clear();
 
