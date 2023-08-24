@@ -3,11 +3,12 @@ package org.example.model.MessageModel;
 import lombok.Data;
 import org.apache.avro.Schema;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 @Data
 
-public class WeatherMessageData {
+public class WeatherMessageData implements Serializable {
     private   Integer humidity;
     private   Integer temperature;
     private   Integer wind_speed;

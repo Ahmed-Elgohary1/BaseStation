@@ -76,6 +76,7 @@ class FileProcessorTest {
     weatherStationMessage.setStation_id(1L);
     weatherStationMessage.setStatus_timestamp(165644546L);
     weatherStationMessage.setS_no(2L);
+    weatherStationMessage.setStatus_timestamp(12566785L);
     weatherStationMessage.setWeatherMessageData(weatherMessageData);
 
     AvroEncoder avroEncoder=new AvroEncoder();

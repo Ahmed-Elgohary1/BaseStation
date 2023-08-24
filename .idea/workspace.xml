@@ -4,21 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="Parquet Writer is corrupted">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/BitCaskManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/DataDiskIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/FileEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ArchiveManagement/ParquetMemoryManagerTest.java" afterDir="false" />
+    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="Refactor Disk related code files">
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2108-25769.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2110-15674.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2110-52734.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2111-24043.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2111-54309.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2129-17916.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2129-55432.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2130-23354.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2131-38916.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2132-41881.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2133-44258.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2134-01425.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2136-37901.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2136-57453.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2138-26943.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2139-07235.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230824-2140-17468.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/StorageManagment/BitCaskManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/BitCaskModel/EntryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ArchiveManagement/ParquetMemoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ArchiveManagement/ParquetMemoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CentralStationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CentralStationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EncoderMangment/AvroEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EncoderMangment/AvroEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EncoderMangment/MessageRecordConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EncoderMangment/MessageRecordConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/DiskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/DiskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/NameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/NameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/WeatherMessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherMessageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/WeatherStationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherStationMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/BitCaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/BitCaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/DataDiskIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/DataDiskIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/FileEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherMessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherMessageData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherStationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/MessageModel/WeatherStationMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/FileManagement/FileProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/FileManagement/FileProcessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -72,83 +84,87 @@
       <recent name="org.example.FileManagement.components" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.StorageManagment" />
+      <recent name="org.example.model.BitCaskModel" />
       <recent name="org.example.ArchiveManagement" />
       <recent name="org.example.FileManagement" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParquetMemoryManagerTest.messageArchiving">
-    <configuration name="CentralStationHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.CentralStationHandler" />
+  <component name="RunManager" selected="JUnit.BitCaskManagerTest.read">
+    <configuration name="BitCaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.StorageManagment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.StorageManagment" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StorageManagment.BitCaskManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileProcessorTest.writeParquetFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BitCaskManagerTest.convert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.FileManagement.*" />
+          <option name="PATTERN" value="org.example.StorageManagment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.FileManagement" />
-      <option name="MAIN_CLASS_NAME" value="org.example.FileManagement.FileProcessorTest" />
-      <option name="METHOD_NAME" value="writeParquetFile" />
+      <option name="PACKAGE_NAME" value="org.example.StorageManagment" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StorageManagment.BitCaskManagerTest" />
+      <option name="METHOD_NAME" value="convert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileProcessorTest.writeRecord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BitCaskManagerTest.put" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.FileManagement.*" />
+          <option name="PATTERN" value="org.example.StorageManagment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.FileManagement" />
-      <option name="MAIN_CLASS_NAME" value="org.example.FileManagement.FileProcessorTest" />
-      <option name="METHOD_NAME" value="writeRecord" />
+      <option name="PACKAGE_NAME" value="org.example.StorageManagment" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StorageManagment.BitCaskManagerTest" />
+      <option name="METHOD_NAME" value="put" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileProcessorTest.writeToParquet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BitCaskManagerTest.read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.FileManagement.*" />
+          <option name="PATTERN" value="org.example.StorageManagment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.FileManagement" />
-      <option name="MAIN_CLASS_NAME" value="org.example.FileManagement.FileProcessorTest" />
-      <option name="METHOD_NAME" value="writeToParquet" />
+      <option name="PACKAGE_NAME" value="org.example.StorageManagment" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StorageManagment.BitCaskManagerTest" />
+      <option name="METHOD_NAME" value="read" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParquetMemoryManagerTest.messageArchiving" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BitCaskManagerTest.red" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.ArchiveManagement.*" />
+          <option name="PATTERN" value="org.example.StorageManagment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.ArchiveManagement" />
-      <option name="MAIN_CLASS_NAME" value="org.example.ArchiveManagement.ParquetMemoryManagerTest" />
-      <option name="METHOD_NAME" value="messageArchiving" />
+      <option name="PACKAGE_NAME" value="org.example.StorageManagment" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StorageManagment.BitCaskManagerTest" />
+      <option name="METHOD_NAME" value="red" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParquetMemoryManagerTest.messageArchiving" />
-        <item itemvalue="JUnit.FileProcessorTest.writeRecord" />
-        <item itemvalue="Application.CentralStationHandler" />
-        <item itemvalue="JUnit.FileProcessorTest.writeToParquet" />
-        <item itemvalue="JUnit.FileProcessorTest.writeParquetFile" />
+        <item itemvalue="JUnit.BitCaskManagerTest.read" />
+        <item itemvalue="JUnit.BitCaskManagerTest.convert" />
+        <item itemvalue="JUnit.BitCaskManagerTest.red" />
+        <item itemvalue="JUnit.BitCaskManagerTest.put" />
+        <item itemvalue="JUnit.BitCaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -236,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692644098706</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactor Disk related code files">
+      <created>1692821515377</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1692821515377</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -282,7 +305,8 @@
     <MESSAGE value="no concurrency is supported" />
     <MESSAGE value="Disk manager is up running" />
     <MESSAGE value="Parquet Writer is corrupted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parquet Writer is corrupted" />
+    <MESSAGE value="Refactor Disk related code files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Disk related code files" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

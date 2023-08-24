@@ -8,10 +8,12 @@ import org.apache.hadoop.fs.Path;
 import org.apache.parquet.avro.AvroParquetWriter;
 import org.apache.parquet.hadoop.ParquetWriter;
 import org.apache.hadoop.conf.Configuration;
+import org.example.model.BitCaskModel.DataDiskIndex;
 import org.example.model.MessageModel.WeatherStationMessage;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.List;
 
 public class DiskManager {
@@ -28,7 +30,40 @@ public class DiskManager {
         return instance;
     }
 
+    public byte[] readFromFile(DataDiskIndex dataDiskIndex){
+        String fileName= dataDiskIndex.getFileName();
+        Long recordPointer= dataDiskIndex.getOffset();
+        int size= dataDiskIndex.getSize();
 
+
+        byte[] fileEntry=null;
+
+        try {
+            RandomAccessFile accessFile=new RandomAccessFile(fileName,"r");
+            accessFile.seek(recordPointer);
+            fileEntry=new byte[size];
+            accessFile.read(fileEntry);
+            accessFile.close();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+      return fileEntry;
+    }
+
+   public Long writeInFile(RandomAccessFile activeFile, byte[] fileEntry){
+       Long recordPointer=0L;
+        try {
+            recordPointer = activeFile.getFilePointer();
+            activeFile.write(fileEntry);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+    return recordPointer;
+   }
 
 
    public void writeWithParquetWriter(List<GenericRecord> records,String fileName) throws IOException {
@@ -37,7 +72,6 @@ public class DiskManager {
        Configuration conf = new Configuration();
        FileSystem fileSystem = FileSystem.get(conf);
        ParquetWriter<GenericRecord> writer ;
-       fileName = fileName.replaceAll(" ", "_");
        Path file=new Path(fileName);
        try {
            writer = AvroParquetWriter

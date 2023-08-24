@@ -4,12 +4,12 @@ public class DataDiskIndex {
     private String fileName;
 
     //read from start offset
-  private   int offset;
+  private   Long offset;
 
     //either read until end of the Entry in the file (offset +Size)
    private int size;
 
-    public DataDiskIndex(String fileName, int offset, int size) {
+    public DataDiskIndex(String fileName, Long offset, int size) {
         this.fileName = fileName;
         this.offset = offset;
         this.size = size;
@@ -20,7 +20,7 @@ public class DataDiskIndex {
         this.fileName = fileName;
     }
 
-    public void setOffset(int offset) {
+    public void setOffset(Long offset) {
         this.offset = offset;
     }
 
@@ -32,7 +32,7 @@ public class DataDiskIndex {
         return size;
     }
 
-    public int getOffset() {
+    public Long getOffset() {
         return offset;
     }
 

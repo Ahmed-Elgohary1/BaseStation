@@ -3,10 +3,11 @@ package org.example.model.MessageModel;
 import lombok.Data;
 import org.apache.avro.Schema;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 @Data
-public class WeatherStationMessage {
+public class WeatherStationMessage implements Serializable {
 
    private Long station_id;
    private Long s_no;
