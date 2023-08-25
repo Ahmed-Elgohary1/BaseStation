@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import static org.example.model.BitCaskModel.Entry.convertBytesToEntry;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EntryTest {
@@ -24,6 +25,7 @@ class EntryTest {
         weatherStationMessage.setStatus_timestamp(165644546L);
         weatherStationMessage.setS_no(2L);
         weatherStationMessage.setStatus_timestamp(12566785L);
+        weatherStationMessage.setBattery_status("high");
         weatherStationMessage.setWeatherMessageData(weatherMessageData);
 
         return weatherStationMessage;
@@ -34,8 +36,9 @@ class EntryTest {
         Entry entry=new Entry(1245L,1L,getMessage());
 
 
-        byte[] value=entry.convertToBytes();
-        System.out.println(value.length);
+        byte[] value=entry.toByteArray();
+
+        System.out.println(convertBytesToEntry(value).getTimestamp());
     }
 
 

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+import static org.example.model.BitCaskModel.Entry.convertBytesToEntry;
+
 class BitCaskManagerTest {
 
 
@@ -36,6 +38,7 @@ class BitCaskManagerTest {
         weatherStationMessage.setStation_id(i);
         weatherStationMessage.setStatus_timestamp(5555555555555555555L);
         weatherStationMessage.setS_no(1111111111111111111L);
+        weatherStationMessage.setBattery_status("medium");
         weatherStationMessage.setWeatherMessageData(weatherMessageData);
 
         return weatherStationMessage;
@@ -46,15 +49,11 @@ class BitCaskManagerTest {
         FileProcessor fileProcessor=FileProcessor.getInstance();
 
         put(1L);
+        put(2L);
 
         byte[] byteArray=bitCaskManager.read(1L);
 
-        for(int i=0;i<byteArray.length-8;i++) {
-            int offset = i; // start from index 0
-            long value = ByteBuffer.wrap(byteArray, offset, Long.BYTES)
-                    .getLong();
-            System.out.println(value+" + "+i);
-        }
+        System.out.println(convertBytesToEntry(byteArray).getStationId());
 
         /*
         * hard coded

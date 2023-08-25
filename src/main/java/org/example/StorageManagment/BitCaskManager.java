@@ -45,7 +45,7 @@ public class BitCaskManager {
        Long status_timestamp= weatherStationMessage.getStatus_timestamp();
 
        Entry entry =new Entry(status_timestamp,station_id,weatherStationMessage);
-       byte[] fileEntry=entry.convertToBytes();
+       byte[] fileEntry=entry.toByteArray();
        try {
              if(!currentFileCanAppendEntry(fileEntry)){
                   activeFile.close();
