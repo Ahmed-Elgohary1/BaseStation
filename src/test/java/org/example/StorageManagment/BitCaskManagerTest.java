@@ -5,6 +5,7 @@ import org.example.model.MessageModel.WeatherMessageData;
 import org.example.model.MessageModel.WeatherStationMessage;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -15,6 +16,9 @@ class BitCaskManagerTest {
 
 
     BitCaskManager bitCaskManager=new BitCaskManager();
+
+    BitCaskManagerTest() throws FileNotFoundException {
+    }
 
     @Test
     void put(Long i) throws IOException {

@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="Implemented suitable serializing and deserializing byte formats">
-      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0225-09934.cask" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0225-09974.cask" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0225-10090.cask" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/FileCompactor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/RebuildManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/HintFileEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/FileManagement/components/DiskManagerTest.java" afterDir="false" />
+    <list default="true" id="e9b5e431-e9c1-435e-b2e1-672a3ff0a670" name="Changes" comment="compacting .cask files is up running &amp;&amp; rebuilding keyDir from .hint is also running">
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0258-01946.cask" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0258-01984.hint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0258-02099.cask" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitCask-Data/20230824-2209-47305.cask" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BitCask-Data/20230824-2210-30976.cask" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/DiskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FileManagement/components/DiskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitCask-Data/20230826-0226-25388.cask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BitCask-Data/20230826-0226-25432.hint" beforeDir="false" afterPath="$PROJECT_DIR$/BitCask-Data/20230826-0256-28264.hint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/BitCaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/BitCaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/BitCaskModel/CaskFileEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/FileCompactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/FileCompactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/RebuildManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StorageManagment/RebuildManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/StorageManagment/BitCaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/StorageManagment/BitCaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/BitCaskModel/EntryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/BitCaskModel/CaskFileEntryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,21 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "E:/project/Weather-Stations-Monitoring/BaseStation",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/project/Weather-Stations-Monitoring/WeatherStation&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -79,7 +74,7 @@
       <recent name="org.example.ArchiveManagement" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BitCaskManagerTest.read">
+  <component name="RunManager" selected="JUnit.ParquetMemoryManagerTest.messageArchiving">
     <configuration name="BitCaskManagerTest.read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BaseStation" />
       <extension name="coverage">
@@ -106,22 +101,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.model.BitCaskModel" />
       <option name="MAIN_CLASS_NAME" value="org.example.model.BitCaskModel.CaskFileEntryTest" />
-      <option name="METHOD_NAME" value="convertToBytes" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DataDiskIndexTest.convertToBytes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BaseStation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.model.BitCaskModel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.model.BitCaskModel" />
-      <option name="MAIN_CLASS_NAME" value="org.example.model.BitCaskModel.DataDiskIndexTest" />
       <option name="METHOD_NAME" value="convertToBytes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -160,13 +139,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParquetMemoryManagerTest.messageArchiving" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BaseStation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.ArchiveManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.ArchiveManagement" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ArchiveManagement.ParquetMemoryManagerTest" />
+      <option name="METHOD_NAME" value="messageArchiving" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParquetMemoryManagerTest.messageArchiving" />
         <item itemvalue="JUnit.BitCaskManagerTest.read" />
-        <item itemvalue="JUnit.DiskManagerTest.b" />
         <item itemvalue="JUnit.DiskManagerTest.bringAllDirectoryFiles" />
+        <item itemvalue="JUnit.DiskManagerTest.b" />
         <item itemvalue="JUnit.CaskFileEntryTest.convertToBytes" />
-        <item itemvalue="JUnit.DataDiskIndexTest.convertToBytes" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692981049505</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="compacting .cask files is up running &amp;&amp; rebuilding keyDir from .hint is also running">
+      <created>1693009709056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1693009709056</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -312,7 +314,8 @@
     <MESSAGE value="Refactor Disk related code files" />
     <MESSAGE value="observing offsets of important fields if Byte[] fileEntry" />
     <MESSAGE value="Implemented suitable serializing and deserializing byte formats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented suitable serializing and deserializing byte formats" />
+    <MESSAGE value="compacting .cask files is up running &amp;&amp; rebuilding keyDir from .hint is also running" />
+    <option name="LAST_COMMIT_MESSAGE" value="compacting .cask files is up running &amp;&amp; rebuilding keyDir from .hint is also running" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

@@ -6,6 +6,7 @@ import org.example.model.BitCaskModel.CaskFileEntry;
 import org.example.model.MessageModel.WeatherStationMessage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ public class BitCaskManager {
     private RebuildManager rebuildManager;
     HashMap<Long, DataDiskIndex>keyDir;
 
-   public BitCaskManager(){
+   public BitCaskManager() throws FileNotFoundException {
 
 
        this.fileProcessor.enableDiskManager();
@@ -95,7 +96,7 @@ public class BitCaskManager {
 
     private void createNewFile(){
 
-        System.out.println(uncompactedFiles);
+       // System.out.println(uncompactedFiles);
        if(uncompactedFiles>1) {
            fileCompactor.merge();
            uncompactedFiles=1;

@@ -3,6 +3,8 @@ package org.example.StorageManagment;
 import org.example.FileManagement.FileProcessor;
 import org.example.model.BitCaskModel.DataDiskIndex;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -43,8 +45,12 @@ public class RebuildManager {
    }
 
 
-   public void rebuild(HashMap<Long,DataDiskIndex> keyDir){
+   public void rebuild(HashMap<Long,DataDiskIndex> keyDir) throws FileNotFoundException {
        for(String fileName:hintFiles){
+
+          File hintFile=new File(bitcaskDirectory+"//"+fileName);
+           activeFile=new RandomAccessFile(hintFile,"rw");
+
            try {
                if (activeFile.getFilePointer() >= activeFile.length()) return ;
 

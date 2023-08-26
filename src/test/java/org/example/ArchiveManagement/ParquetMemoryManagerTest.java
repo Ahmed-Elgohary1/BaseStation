@@ -23,7 +23,7 @@ class ParquetMemoryManagerTest {
         weatherMessageData.setTemperature(73);
         weatherMessageData.setWind_speed(4);
 
-        weatherStationMessage.setStation_id(1L);
+        weatherStationMessage.setStation_id(2L);
         weatherStationMessage.setStatus_timestamp(165644546L);
         weatherStationMessage.setS_no(2L);
         weatherStationMessage.setWeatherMessageData(weatherMessageData);

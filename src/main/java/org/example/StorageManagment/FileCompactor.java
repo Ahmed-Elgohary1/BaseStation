@@ -50,6 +50,7 @@ public class FileCompactor {
     public void merge() {
         String [] oldFiles=fileProcessor.diskManager.bringAllDirectoryFiles(bitcaskDirectory);
 
+
         try{
             activeFile=new RandomAccessFile(compactFile,"rw");
 
@@ -79,9 +80,16 @@ public class FileCompactor {
         }
 
 
+        int count=oldFiles.length;
         for(String fileName:oldFiles){
-            fileProcessor.diskManager.deleteFile(bitcaskDirectory+"//"+fileName);
+           boolean d= fileProcessor.diskManager.deleteFile(bitcaskDirectory+ File.separator+fileName);
+            System.out.println(fileName);
+            if(d)
+                count--;
         }
+        System.out.println(count);
+
+
 
     }
 
