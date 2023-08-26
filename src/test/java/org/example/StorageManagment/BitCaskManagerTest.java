@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import static org.example.model.BitCaskModel.Entry.convertBytesToEntry;
+import static org.example.model.BitCaskModel.CaskFileEntry.convertBytesToCaskEntry;
 
 class BitCaskManagerTest {
 
@@ -50,10 +50,83 @@ class BitCaskManagerTest {
 
         put(1L);
         put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L); put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
+        put(2L);
 
         byte[] byteArray=bitCaskManager.read(1L);
 
-        System.out.println(convertBytesToEntry(byteArray).getStationId());
+        System.out.println(convertBytesToCaskEntry(byteArray).getStationId());
 
         /*
         * hard coded

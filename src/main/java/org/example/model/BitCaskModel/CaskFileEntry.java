@@ -1,28 +1,23 @@
 package org.example.model.BitCaskModel;
 
-import org.example.model.MessageModel.WeatherMessageData;
 import org.example.model.MessageModel.WeatherStationMessage;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 
-import static org.example.model.MessageModel.WeatherMessageData.convertByteToWeatherDataMessage;
 import static org.example.model.MessageModel.WeatherStationMessage.convertByteToWeatherStationMessage;
 
-public class Entry implements Serializable {
+public class CaskFileEntry implements Serializable {
     private Long timestamp;
     private Long stationId;
     private WeatherStationMessage weatherMessage;
 
-    public Entry(Long timestamp, Long stationId, WeatherStationMessage weatherStationMessage){
+    public CaskFileEntry(Long timestamp, Long stationId, WeatherStationMessage weatherStationMessage){
         this.stationId=stationId;
         this.timestamp=timestamp;
         this.weatherMessage=weatherStationMessage;
     }
-    public Entry(){}
+    public CaskFileEntry(){}
 
     public  byte[] toByteArray() {
 
@@ -47,13 +42,13 @@ public class Entry implements Serializable {
     }
 
 
-    public static Entry convertBytesToEntry(byte[] value){
-        Entry entry=new Entry();
+    public static CaskFileEntry convertBytesToCaskEntry(byte[] value){
+        CaskFileEntry caskFileEntry =new CaskFileEntry();
 
         ByteBuffer buffer = ByteBuffer.wrap(value);
 
-        entry.setTimestamp(buffer.getLong());
-        entry.setStationId(buffer.getLong());
+        caskFileEntry.setTimestamp(buffer.getLong());
+        caskFileEntry.setStationId(buffer.getLong());
 
 
         int weatherStationMessageByteSize= buffer.getInt();
@@ -61,10 +56,9 @@ public class Entry implements Serializable {
         buffer.get(weatherStationMessageByte);
         WeatherStationMessage weatherStationMessage=convertByteToWeatherStationMessage(weatherStationMessageByte);
 
-        System.out.println(weatherStationMessage.getStation_id());
-        entry.setWeatherMessage(weatherStationMessage);
+        caskFileEntry.setWeatherMessage(weatherStationMessage);
 
-        return entry;
+        return caskFileEntry;
     }
 
 

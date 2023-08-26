@@ -11,9 +11,11 @@ import org.apache.hadoop.conf.Configuration;
 import org.example.model.BitCaskModel.DataDiskIndex;
 import org.example.model.MessageModel.WeatherStationMessage;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DiskManager {
@@ -63,6 +65,26 @@ public class DiskManager {
         }
 
     return recordPointer;
+   }
+
+   public Boolean deleteFile(String filePath){
+
+        boolean noMoreExist=true;
+       File file=new File(filePath);
+       if(file.exists())
+           noMoreExist=file.delete();
+
+       return noMoreExist;
+   }
+
+   public String[] bringAllDirectoryFiles(String directoryPath){
+        String[]filesName;
+
+        File directory=new File(directoryPath);
+
+        filesName=directory.list();
+
+        return filesName;
    }
 
 

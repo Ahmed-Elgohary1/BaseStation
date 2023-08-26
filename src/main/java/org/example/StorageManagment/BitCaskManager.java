@@ -2,7 +2,7 @@ package org.example.StorageManagment;
 
 import org.example.FileManagement.FileProcessor;
 import org.example.model.BitCaskModel.DataDiskIndex;
-import org.example.model.BitCaskModel.Entry;
+import org.example.model.BitCaskModel.CaskFileEntry;
 import org.example.model.MessageModel.WeatherStationMessage;
 
 import java.io.File;
@@ -16,9 +16,12 @@ public class BitCaskManager {
 
     private final String bitcaskDirectory;
     private File fileID;
-    private final long FILE_THRESHOLD = (long) 10 * 1024;  // 10KB
+    private final long FILE_THRESHOLD = (long) 1 * 1024;  // 1KB
     private RandomAccessFile activeFile;
     private int uncompactedFiles;
+
+    private FileCompactor fileCompactor;
+    private RebuildManager rebuildManager;
     HashMap<Long, DataDiskIndex>keyDir;
 
    public BitCaskManager(){
@@ -30,11 +33,19 @@ public class BitCaskManager {
        this.bitcaskDirectory=fileProcessor.nameManager
                .appendDirectory("E:\\project\\Weather-Stations-Monitoring\\BaseStation\\" ,"BitCask-Data");
 
-       createNewFile();
 
-       this.uncompactedFiles=1;
+
+
+       this.rebuildManager=new RebuildManager();
 
        keyDir=new HashMap<>();
+       this.fileCompactor=new FileCompactor(keyDir);
+       rebuildManager.rebuild(keyDir);
+
+
+       this.uncompactedFiles=1;
+       createNewFile();
+
 
    }
 
@@ -44,8 +55,8 @@ public class BitCaskManager {
        Long station_id= weatherStationMessage.getStation_id();
        Long status_timestamp= weatherStationMessage.getStatus_timestamp();
 
-       Entry entry =new Entry(status_timestamp,station_id,weatherStationMessage);
-       byte[] fileEntry=entry.toByteArray();
+       CaskFileEntry caskFileEntry =new CaskFileEntry(status_timestamp,station_id,weatherStationMessage);
+       byte[] fileEntry= caskFileEntry.toByteArray();
        try {
              if(!currentFileCanAppendEntry(fileEntry)){
                   activeFile.close();
@@ -83,6 +94,12 @@ public class BitCaskManager {
 
 
     private void createNewFile(){
+
+        System.out.println(uncompactedFiles);
+       if(uncompactedFiles>1) {
+           fileCompactor.merge();
+           uncompactedFiles=1;
+       }
         String filename=fileProcessor.nameManager.generateUniquePathName(this.bitcaskDirectory,"//",".cask");
 
         try{

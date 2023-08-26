@@ -4,14 +4,9 @@ import org.example.model.MessageModel.WeatherMessageData;
 import org.example.model.MessageModel.WeatherStationMessage;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import static org.example.model.BitCaskModel.CaskFileEntry.convertBytesToCaskEntry;
 
-import static org.example.model.BitCaskModel.Entry.convertBytesToEntry;
-import static org.junit.jupiter.api.Assertions.*;
-
-class EntryTest {
+class CaskFileEntryTest {
 
 
     WeatherStationMessage getMessage(){
@@ -33,12 +28,12 @@ class EntryTest {
 
     @Test
     void convertToBytes() {
-        Entry entry=new Entry(1245L,1L,getMessage());
+        CaskFileEntry caskFileEntry =new CaskFileEntry(1245L,1L,getMessage());
 
 
-        byte[] value=entry.toByteArray();
+        byte[] value= caskFileEntry.toByteArray();
 
-        System.out.println(convertBytesToEntry(value).getTimestamp());
+        System.out.println(convertBytesToCaskEntry(value).getTimestamp());
     }
 
 
